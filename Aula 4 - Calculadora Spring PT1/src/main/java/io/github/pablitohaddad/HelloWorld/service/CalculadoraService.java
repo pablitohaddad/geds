@@ -28,6 +28,14 @@ public class CalculadoraService {
     // TODO -> Geisiane módulo
 
     // TODO -> Gustavo potência
+    public double potencia(double base, double expoente) {
+        double resultado = Math.pow(base, expoente);
+        Operacao operacao = new Operacao(base, expoente, "^", resultado);
+        historico.add(operacao);
+        return resultado;
+
+    }
+
 
     // TODO -> Larissa raiz quadrada
 
