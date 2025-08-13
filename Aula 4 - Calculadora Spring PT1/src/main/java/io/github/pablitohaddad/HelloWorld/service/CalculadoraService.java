@@ -22,6 +22,12 @@ public class CalculadoraService {
     // TODO -> Eduardo subtração
 
     // TODO -> Meira multiplicação
+    public double multiplicar(double num1, double num2) {
+        double resultado = num1 * num2;
+        Operacao operacao = new Operacao(num1, num2, "*", resultado);
+        historico.add(operacao);
+        return resultado;
+    }
 
     // TODO -> Ana Paula divisão
 
