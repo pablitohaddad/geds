@@ -35,6 +35,10 @@ public class CalculadoraController {
     // TODO -> Geisiane módulo
 
     // TODO -> Gustavo potência
+    @GetMapping("/potencia") // localhost:8080/calculadora/somar?num1=12&num2=12
+    public double potencia(@RequestParam double base, @RequestParam double expoente){
+        return calculadoraService.potencia(base, expoente);
+    }
 
     // TODO -> Larissa raiz quadrada
 
