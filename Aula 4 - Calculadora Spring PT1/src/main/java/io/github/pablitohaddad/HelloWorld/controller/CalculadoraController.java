@@ -39,6 +39,10 @@ public class CalculadoraController {
     // TODO -> Larissa raiz quadrada
 
     // TODO -> Gabriel fatorial (3! = 3 * 2 * 1 = 6)
+    @GetMapping("/fatorial")
+    public long fatorial(@RequestParam int num) {
+        return calculadoraService.fatorial(num);
+    }
 
 
     @GetMapping("/historico") // localhost:8080/calculadora/historico
