@@ -25,6 +25,10 @@ public class CalculadoraController {
     // TODO -> Eduardo subtração
 
     // TODO -> Meira multiplicação
+    @GetMapping("/multiplicar") // localhost:8080/calculadora/multiplicar?num1=2&num2=5
+    public double multiplicar(@RequestParam double num1, @RequestParam double num2){
+        return calculadoraService.multiplicar(num1, num2);
+    }
 
     // TODO -> Ana Paula divisão
 
@@ -35,10 +39,18 @@ public class CalculadoraController {
     }
 
     // TODO -> Gustavo potência
+    @GetMapping("/potencia") // localhost:8080/calculadora/somar?num1=12&num2=12
+    public double potencia(@RequestParam double base, @RequestParam double expoente){
+        return calculadoraService.potencia(base, expoente);
+    }
 
     // TODO -> Larissa raiz quadrada
 
     // TODO -> Gabriel fatorial (3! = 3 * 2 * 1 = 6)
+    @GetMapping("/fatorial")
+    public long fatorial(@RequestParam int num) {
+        return calculadoraService.fatorial(num);
+    }
 
 
     @GetMapping("/historico") // localhost:8080/calculadora/historico
