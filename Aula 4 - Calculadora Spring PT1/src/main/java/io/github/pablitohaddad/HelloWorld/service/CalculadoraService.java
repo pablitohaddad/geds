@@ -32,6 +32,14 @@ public class CalculadoraService {
     // TODO -> Ana Paula divisão
 
     // TODO -> Geisiane módulo
+    /* presumi que módulo se refere a (num1%num2) e
+    não (|num|), pq o histórico funciona com 2 números.*/
+    public double modulo(double num1, double num2){
+        double resultado = num1 % num2;
+        Operacao operacao = new Operacao(num1, num2, "%", resultado);
+        historico.add(operacao);
+        return resultado;
+    }
 
     // TODO -> Gustavo potência
     public double potencia(double base, double expoente) {

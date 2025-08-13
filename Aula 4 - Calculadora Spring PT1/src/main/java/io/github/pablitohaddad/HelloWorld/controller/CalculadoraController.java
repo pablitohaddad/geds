@@ -33,6 +33,10 @@ public class CalculadoraController {
     // TODO -> Ana Paula divisão
 
     // TODO -> Geisiane módulo
+    @GetMapping("/modulo")
+    public double modulo(@RequestParam double num1, @RequestParam double num2){
+        return calculadoraService.modulo(num1,num2);
+    }
 
     // TODO -> Gustavo potência
     @GetMapping("/potencia") // localhost:8080/calculadora/somar?num1=12&num2=12
