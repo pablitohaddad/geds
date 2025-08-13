@@ -32,6 +32,18 @@ public class CalculadoraService {
     // TODO -> Larissa raiz quadrada
 
     // TODO -> Gabriel fatorial (3! = 3 * 2 * 1 = 6)
+    public long fatorial(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Número negativo");
+        }
+        long resultado = 1;
+        for (int i = 1; i <= num; i++) {
+            resultado *= i;
+        }
+        historico.add(new Operacao("Fatorial", num, resultado));
+        return resultado;
+    }
+
 
     public List<Operacao> getHistorico() {
         return Collections.unmodifiableList(historico);
