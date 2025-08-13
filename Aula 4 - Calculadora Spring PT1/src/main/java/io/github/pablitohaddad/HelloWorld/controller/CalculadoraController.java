@@ -25,6 +25,10 @@ public class CalculadoraController {
     // TODO -> Eduardo subtração
 
     // TODO -> Meira multiplicação
+    @GetMapping("/multiplicar") // localhost:8080/calculadora/multiplicar?num1=2&num2=5
+    public double multiplicar(@RequestParam double num1, @RequestParam double num2){
+        return calculadoraService.multiplicar(num1, num2);
+    }
 
     // TODO -> Ana Paula divisão
 
