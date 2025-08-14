@@ -52,6 +52,13 @@ public class CalculadoraService {
 
 
     // TODO -> Larissa raiz quadrada
+    public double raizQuadrada(double num){
+        double resultado = Math.sqrt(num);
+        Operacao operacao = new Operacao(num, num, "√", resultado);
+
+        historico.add(operacao);
+        return resultado;
+    }
 
     // TODO -> Gabriel fatorial (3! = 3 * 2 * 1 = 6)
     public long fatorial(int num) {
