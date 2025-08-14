@@ -31,6 +31,10 @@ public class CalculadoraController {
     }
 
     // TODO -> Ana Paula divisão
+    @GetMapping("/dividir") // localhost:8080/calculadora/dividir?num1=10&num2=2
+public double dividir(@RequestParam double num1, @RequestParam double num2) {
+    return calculadoraService.dividir(num1, num2);
+}
 
     // TODO -> Geisiane módulo
     @GetMapping("/modulo")

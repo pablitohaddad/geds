@@ -30,6 +30,15 @@ public class CalculadoraService {
     }
 
     // TODO -> Ana Paula divisão
+    public double dividir(double num1, double num2) {
+        if (num2 == 0) {
+            throw new IllegalArgumentException("Não é possível dividir por zero");
+        }
+        double resultado = num1 / num2;
+        Operacao operacao = new Operacao(num1, num2, "/", resultado);
+        historico.add(operacao);
+        return resultado;
+    }
 
     // TODO -> Geisiane módulo
     /* presumi que módulo se refere a (num1%num2) e
@@ -47,9 +56,7 @@ public class CalculadoraService {
         Operacao operacao = new Operacao(base, expoente, "^", resultado);
         historico.add(operacao);
         return resultado;
-
     }
-
 
     // TODO -> Larissa raiz quadrada
 
@@ -65,7 +72,6 @@ public class CalculadoraService {
         historico.add(new Operacao("Fatorial", num, resultado));
         return resultado;
     }
-
 
     public List<Operacao> getHistorico() {
         return Collections.unmodifiableList(historico);
