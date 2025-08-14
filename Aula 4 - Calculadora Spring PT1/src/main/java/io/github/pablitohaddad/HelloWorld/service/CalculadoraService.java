@@ -40,7 +40,6 @@ public class CalculadoraService {
         return resultado;
     }
 
-
     // TODO -> Geisiane módulo
     /* presumi que módulo se refere a (num1%num2) e
     não (|num|), pq o histórico funciona com 2 números.*/
@@ -57,9 +56,7 @@ public class CalculadoraService {
         Operacao operacao = new Operacao(base, expoente, "^", resultado);
         historico.add(operacao);
         return resultado;
-
     }
-
 
     // TODO -> Larissa raiz quadrada
 
@@ -75,7 +72,6 @@ public class CalculadoraService {
         historico.add(new Operacao("Fatorial", num, resultado));
         return resultado;
     }
-
 
     public List<Operacao> getHistorico() {
         return Collections.unmodifiableList(historico);
