@@ -49,6 +49,10 @@ public double dividir(@RequestParam double num1, @RequestParam double num2) {
     }
 
     // TODO -> Larissa raiz quadrada
+    @GetMapping("/raiz") //http://localhost:8080/calculadora/raiz?num=12
+    public double raizQuadrada(@RequestParam double num){
+        return calculadoraService.raizQuadrada(num);
+    }
 
     // TODO -> Gabriel fatorial (3! = 3 * 2 * 1 = 6)
     @GetMapping("/fatorial")
