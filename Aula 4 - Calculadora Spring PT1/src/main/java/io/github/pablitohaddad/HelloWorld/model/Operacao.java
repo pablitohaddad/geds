@@ -1,9 +1,16 @@
 package io.github.pablitohaddad.HelloWorld.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@Document(collection = "operacoes")
 public class Operacao {
+    // Primary Key
+    @Id
+    private String id; // Gerado automaticamente
     private double num1;
     private double num2;
     private String operador;

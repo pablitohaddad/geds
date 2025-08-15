@@ -1,21 +1,22 @@
 package io.github.pablitohaddad.HelloWorld.service;
 
 import io.github.pablitohaddad.HelloWorld.model.Operacao;
+import io.github.pablitohaddad.HelloWorld.repository.OperacaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
 public class CalculadoraService {
 
-    private final List<Operacao> historico = new ArrayList<>();
+    @Autowired
+    private OperacaoRepository operacaoRepository;
 
     public double somar(double num1, double num2){
         double resultado = num1 + num2;
         Operacao operacao = new Operacao(num1, num2, "+", resultado);
-        historico.add(operacao);
+        operacaoRepository.save(operacao);
         return resultado;
     }
     // ATENÇÃO, comecem a fazer a operação a baixo do TODO com o seu nome!
@@ -25,7 +26,6 @@ public class CalculadoraService {
     public double multiplicar(double num1, double num2) {
         double resultado = num1 * num2;
         Operacao operacao = new Operacao(num1, num2, "*", resultado);
-        historico.add(operacao);
         return resultado;
     }
 
@@ -36,7 +36,7 @@ public class CalculadoraService {
         }
         double resultado = num1 / num2;
         Operacao operacao = new Operacao(num1, num2, "/", resultado);
-        historico.add(operacao);
+        operacaoRepository.save(operacao);
         return resultado;
     }
 
@@ -46,7 +46,7 @@ public class CalculadoraService {
     public double modulo(double num1, double num2){
         double resultado = num1 % num2;
         Operacao operacao = new Operacao(num1, num2, "%", resultado);
-        historico.add(operacao);
+        operacaoRepository.save(operacao);
         return resultado;
     }
 
@@ -54,7 +54,7 @@ public class CalculadoraService {
     public double potencia(double base, double expoente) {
         double resultado = Math.pow(base, expoente);
         Operacao operacao = new Operacao(base, expoente, "^", resultado);
-        historico.add(operacao);
+        operacaoRepository.save(operacao);
         return resultado;
     }
 
@@ -62,8 +62,7 @@ public class CalculadoraService {
     public double raizQuadrada(double num){
         double resultado = Math.sqrt(num);
         Operacao operacao = new Operacao(num, num, "√", resultado);
-
-        historico.add(operacao);
+        operacaoRepository.save(operacao);
         return resultado;
     }
 
@@ -76,12 +75,11 @@ public class CalculadoraService {
         for (int i = 1; i <= num; i++) {
             resultado *= i;
         }
-        historico.add(new Operacao("Fatorial", num, resultado));
         return resultado;
     }
 
     public List<Operacao> getHistorico() {
-        return Collections.unmodifiableList(historico);
+        return operacaoRepository.findAll();
     }
 
 }
