@@ -58,6 +58,15 @@ public double dividir(@RequestParam double num1, @RequestParam double num2) {
     }
 
     // TODO -> Gustavo potência
+    @Operation(
+            summary = "Realiza a potenciação de um número",
+            description = "O endpoint recebe dois números (base e expoente) e realiza a potenciação: localhost:8080/calculadora/potecia?base=10&expoente=2"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação de potenciação realizada com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Parâmetros inválidos."),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    })
     @GetMapping("/potencia") // localhost:8080/calculadora/potencia?num1=12&num2=12
     public double potencia(@RequestParam double base, @RequestParam double expoente){
         return calculadoraService.potencia(base, expoente);
