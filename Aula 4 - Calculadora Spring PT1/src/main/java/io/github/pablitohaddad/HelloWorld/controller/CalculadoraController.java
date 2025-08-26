@@ -52,6 +52,15 @@ public double dividir(@RequestParam double num1, @RequestParam double num2) {
 }
 
     // TODO -> Geisiane módulo
+    @Operation(
+            summary = "Retorna o resto da divisão de um número por outro.",
+            description = "O endpoint recebe dois números e mostra o resto da divisão desses números: localhost:8080/calculadora/modulo?num1=12&num2=12"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação de modulo realizada com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos."),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    })
     @GetMapping("/modulo") // localhost:8080/calculadora/modulo?num1=12&num2=12
     public double modulo(@RequestParam double num1, @RequestParam double num2){
         return calculadoraService.modulo(num1,num2);
