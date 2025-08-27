@@ -70,6 +70,15 @@ public double dividir(@RequestParam double num1, @RequestParam double num2) {
     }
 
     // TODO -> Gabriel fatorial (3! = 3 * 2 * 1 = 6)
+    @Operation(
+            summary = "Realiza o Fatorial de um numero",
+            description = "O endpoint recebe um números e realiza o fatorial: localhost:8080/calculadora/fatorial?num=3"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação do  Fatorial realizada com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos."),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    })
     @GetMapping("/fatorial")
     public long fatorial(@RequestParam int num) {
         return calculadoraService.fatorial(num);
