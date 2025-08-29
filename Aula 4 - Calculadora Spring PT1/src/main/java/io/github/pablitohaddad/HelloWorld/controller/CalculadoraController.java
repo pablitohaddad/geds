@@ -64,6 +64,16 @@ public double dividir(@RequestParam double num1, @RequestParam double num2) {
     }
 
     // TODO -> Larissa raiz quadrada
+    @Operation(
+            summary = "Calcula a raiz quadrada de um determinado número",
+            description = "O endpoint recebe um número e calcula sua raiz quadrada: " +
+                          "http://localhost:8080/calculadora/raiz?num=12"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação raiz quadrada realizada com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos."),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    })
     @GetMapping("/raiz") //http://localhost:8080/calculadora/raiz?num=12
     public double raizQuadrada(@RequestParam double num){
         return calculadoraService.raizQuadrada(num);
