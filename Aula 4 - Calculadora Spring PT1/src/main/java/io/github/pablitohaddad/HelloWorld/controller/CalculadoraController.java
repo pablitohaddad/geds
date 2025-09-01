@@ -46,6 +46,17 @@ public class CalculadoraController {
     }
 
     // TODO -> Ana Paula divisão
+    @Operation(
+            summary = "Realiza a multiplicação de dois números.",
+            description = "O endpoint recebe dois números e mostra o resultado da divisão desses números: localhost:8080/calculadora/divisao?num1=12&num2=4"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação de divisão realizada com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Parâmetros inválidos."),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    })
+
+
     @GetMapping("/dividir") // localhost:8080/calculadora/dividir?num1=10&num2=2
 public double dividir(@RequestParam double num1, @RequestParam double num2) {
     return calculadoraService.dividir(num1, num2);
