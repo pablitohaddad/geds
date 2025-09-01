@@ -39,7 +39,17 @@ public class CalculadoraController {
     // ATENÇÃO, comecem a fazer o endpoint a baixo do TODO com o seu nome!!
     // TODO -> Eduardo subtração
 
+
     // TODO -> Meira multiplicação
+    @Operation(
+            summary = "Realiza a multiplicação de dois números",
+            description = "O endpoint recebe dois números e multiplicacar esses números: localhost:8080/calculadora/multiplicar?num1=12&num2=12"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação de multiplicar realizada com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos."),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    })
     @GetMapping("/multiplicar") // localhost:8080/calculadora/multiplicar?num1=2&num2=5
     public double multiplicar(@RequestParam double num1, @RequestParam double num2){
         return calculadoraService.multiplicar(num1, num2);
